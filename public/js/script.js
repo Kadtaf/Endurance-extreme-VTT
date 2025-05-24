@@ -1,15 +1,6 @@
-// Polyfills anciens navigateurs
-if (!Element.prototype.matches) {
-    Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
-}
-if (!Node.prototype.contains) {
-    Node.prototype.contains = function(arg) {
-        return !!(this.compareDocumentPosition(arg) & 16);
-    };
-}
 
 document.addEventListener('DOMContentLoaded', function () {
-    // === Menu Burger ===
+    // Menu Burger
     const menuToggle = document.querySelector('.menu-toggle');
     const mainNav = document.querySelector('.main-nav');
 
@@ -48,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
         };
     }
 
-    // === Récupération du token CSRF ===
+    //Récupération du token CSRF 
     const csrfToken = document.getElementById('csrf_token');
     if (csrfToken) {
         fetch('/php/csrf.php', { credentials: 'include' })
@@ -56,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(token => { csrfToken.value = token; })
             .catch(err => console.error("Erreur CSRF:", err));
     }
-
+    //Validation des champs input du formulaire côté client
     function validateClientFields(form) {
         let isValid = true;
 
@@ -89,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    // === Formulaire Newsletter (AJAX) ===
+    //Formulaire Newsletter (AJAX) 
     const newsletterForm = document.querySelector('.newsletter-form');
     if (newsletterForm) {
         newsletterForm.addEventListener('submit', async function (e) {
@@ -151,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // === Message Flash depuis PHP ===
+    //Message Flash depuis PHP 
     fetch('/php/message.php')
         .then(res => res.json())
         .then(data => {
@@ -166,7 +157,7 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .catch(console.warn);
 
-  // === Bouton retour en haut ===
+  //Bouton retour en haut
     function initBackToTop() {
         const btn = document.querySelector('.back-to-top');
         if (!btn) return;
@@ -199,7 +190,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
-// === Notification ===
+//Notification
 function showNotification({ title, message, type = "success", duration = 4000 }) {
     const notif = document.createElement('div');
     notif.className = `notification ${type}`;

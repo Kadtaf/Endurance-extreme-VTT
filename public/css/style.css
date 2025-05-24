@@ -151,14 +151,6 @@ section {
     padding: 2rem 0;
 }
 
-/*.vtt-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    justify-content:space-around;
-    padding: 2rem 1rem;
-}*/
-
 .vtt-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -214,7 +206,6 @@ section {
     margin-bottom: 1rem;
     
 }
-
 
 .product-name {
     color: var(--orange);
@@ -319,8 +310,6 @@ section {
     margin-bottom: 0.5rem;
 }
 
-
-
 /* SECTION A PROPOS */
 
 .section-about {
@@ -335,9 +324,6 @@ section {
     font-size: 2rem;
     color: var(--noir);
     margin-bottom: 2rem;
-    /*font-weight: 900;
-    margin-bottom: 1rem;
-    color: var(--noir);*/
 }
 
 .about-content {
